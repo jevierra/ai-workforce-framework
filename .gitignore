@@ -1,0 +1,6 @@
+.DS_Store
+.obsidian/
+.smart-env/
+*.swp
+*.swo
+*~

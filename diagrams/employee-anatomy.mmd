@@ -1,0 +1,81 @@
+%%{init: {'theme': 'base', 'themeVariables': {'primaryColor': '#4a90d9', 'primaryTextColor': '#fff', 'primaryBorderColor': '#2c5f8a', 'lineColor': '#666'}}}%%
+
+graph TB
+    subgraph activation["ACTIVATION LAYER"]
+        Instructions["<b>instructions.md</b><br/><i>The ON switch</i><br/>Load this to enable<br/>the employee"]
+    end
+
+    subgraph identity["IDENTITY LAYER — Who They Are"]
+        direction LR
+        Brain["<b>brain.md</b><br/><i>How I think</i><br/>Analysis approach<br/>Domain knowledge<br/>Decision framework<br/>Learned patterns"]
+        Soul["<b>soul.md</b><br/><i>My values</i><br/>Core values<br/>Hard boundaries<br/>Gray area handling<br/>North star principle"]
+        Personality["<b>personality.md</b><br/><i>What makes me me</i><br/>Communication style<br/>Tone & phrases<br/>Quirks<br/>Situational behavior"]
+    end
+
+    subgraph memory["MEMORY LAYER — What They Remember"]
+        direction LR
+        Employment["<b>memory/<br/>employment.md</b><br/><i>Personnel file</i><br/>Milestones<br/>Config history"]
+        Decisions["<b>memory/<br/>decisions.md</b><br/><i>Decision log</i><br/>Rationale<br/>Precedents"]
+        Interactions["<b>memory/<br/>interactions.md</b><br/><i>Session history</i><br/>Recurring themes<br/>Relationship notes"]
+    end
+
+    subgraph tasks["TASK LAYER — What They're Doing"]
+        direction LR
+        Active["<b>tasks/<br/>active.md</b><br/><i>Current work</i><br/>Attention items<br/>Active tasks<br/>Upcoming"]
+        Completed["<b>tasks/<br/>completed.md</b><br/><i>Done archive</i><br/>Task history<br/>Outcomes"]
+    end
+
+    subgraph resources["RESOURCE LAYER — What They Access"]
+        direction LR
+        Sources["<b>sources.md</b><br/><i>Data access</i><br/>File paths<br/>Tools & systems<br/>Reference materials"]
+        Training["<b>training/</b><br/><i>Skill building</i><br/>Guides & examples<br/>Domain materials"]
+        RecreationFile["<b>recreation.md</b><br/><i>Off-the-clock</i><br/>Social profile<br/>Team dynamics"]
+    end
+
+    %% Activation loads identity
+    Instructions -->|"loads &<br/>orchestrates"| Brain
+    Instructions -->|"loads &<br/>orchestrates"| Soul
+    Instructions -->|"loads &<br/>orchestrates"| Personality
+
+    %% Identity informs task execution
+    Brain -->|"analysis approach<br/>shapes work"| Active
+    Soul -->|"values guide<br/>decisions"| Decisions
+    Personality -->|"voice & tone<br/>shape output"| Active
+
+    %% Memory provides continuity
+    Interactions -->|"context from<br/>past sessions"| Active
+    Decisions -->|"precedents<br/>inform choices"| Brain
+    Employment -->|"growth over<br/>time"| Brain
+
+    %% Tasks generate memory
+    Active -->|"completed tasks<br/>move here"| Completed
+    Active -->|"notable moments<br/>logged here"| Interactions
+    Active -->|"significant choices<br/>recorded here"| Decisions
+
+    %% Resources support everything
+    Sources -->|"data for<br/>task work"| Active
+    Training -->|"builds<br/>expertise"| Brain
+    RecreationFile -->|"personality in<br/>social settings"| Personality
+
+    %% Styling
+    style activation fill:#ff6b6b,stroke:#cc4444,color:#fff
+    style Instructions fill:#ff6b6b,stroke:#cc4444,color:#fff
+
+    style identity fill:#e8f0fa,stroke:#4a90d9
+    style Brain fill:#4a90d9,stroke:#2c5f8a,color:#fff
+    style Soul fill:#9b59b6,stroke:#7d3c98,color:#fff
+    style Personality fill:#e67e22,stroke:#b8651a,color:#fff
+
+    style memory fill:#fdf2e9,stroke:#e67e22
+    style Employment fill:#f39c12,stroke:#d68910,color:#fff
+    style Decisions fill:#f39c12,stroke:#d68910,color:#fff
+    style Interactions fill:#f39c12,stroke:#d68910,color:#fff
+
+    style tasks fill:#e8f8f5,stroke:#1abc9c
+    style Active fill:#1abc9c,stroke:#148f77,color:#fff
+    style Completed fill:#1abc9c,stroke:#148f77,color:#fff
+
+    style resources fill:#f5f5f5,stroke:#999
+    style Sources fill:#95a5a6,stroke:#717d7e,color:#fff
+    style Training fill:#95a5a6,stroke:#717d7e,color:#fff
+    style RecreationFile fill:#95a5a6,stroke:#717d7e,color:#fff

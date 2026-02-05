@@ -1,0 +1,68 @@
+%%{init: {'theme': 'base', 'themeVariables': {'primaryColor': '#4a90d9', 'primaryTextColor': '#fff', 'primaryBorderColor': '#2c5f8a', 'lineColor': '#666', 'secondaryColor': '#f0f0f0', 'tertiaryColor': '#e8f4e8'}}}%%
+
+graph TB
+    subgraph center["COMMAND CENTER"]
+        Human["<b>Human Operator</b><br/>Strategic direction<br/>Decision authority<br/>Quality control"]
+    end
+
+    subgraph claude_team["CLAUDE-POWERED EMPLOYEES"]
+        direction LR
+        E1["Employee 1<br/><i>Role Title</i>"]
+        E2["Employee 2<br/><i>Role Title</i>"]
+        E3["Employee 3<br/><i>Role Title</i>"]
+        E4["Employee 4<br/><i>Role Title</i>"]
+        EN["Employee N<br/><i>Role Title</i>"]
+    end
+
+    subgraph gemini_team["GEMINI-POWERED SPECIALISTS"]
+        direction LR
+        Doc["Document Specialist<br/><i>PDF / Spreadsheet<br/>processing</i>"]
+    end
+
+    subgraph future["FUTURE: LOCAL MODEL AGENTS"]
+        direction LR
+        Scout1["Autonomous Scout<br/><i>Monitoring</i>"]
+        Scout2["Autonomous Scout<br/><i>Research</i>"]
+        style Scout1 stroke-dasharray: 5 5
+        style Scout2 stroke-dasharray: 5 5
+    end
+
+    subgraph filesystem["SHARED FILE SYSTEM"]
+        direction LR
+        Employees["employees/<br/><i>Identity files<br/>Tasks, Memory</i>"]
+        Sources["sources/<br/><i>Shared data<br/>References</i>"]
+        Outputs["outputs/<br/><i>Deliverables<br/>Reports</i>"]
+        Recreation["recreation/<br/><i>Logs, Locations<br/>Team culture</i>"]
+    end
+
+    %% Human directs all teams
+    Human -->|"assigns tasks<br/>reviews work"| claude_team
+    Human -->|"assigns tasks<br/>reviews work"| gemini_team
+    Human -.->|"future:<br/>sets objectives"| future
+
+    %% All teams connect to filesystem
+    claude_team <-->|"read/write<br/>identity & tasks"| filesystem
+    gemini_team <-->|"read/write<br/>documents"| filesystem
+    future -.->|"future:<br/>report findings"| filesystem
+
+    %% Information flow between teams via filesystem
+    claude_team -->|"handoffs &<br/>shared context"| gemini_team
+    gemini_team -->|"processed data<br/>& documents"| claude_team
+
+    %% Styling
+    style center fill:#2c5f8a,stroke:#1a3a5c,color:#fff
+    style Human fill:#2c5f8a,stroke:#1a3a5c,color:#fff
+    style claude_team fill:#e8f0fa,stroke:#4a90d9
+    style gemini_team fill:#faf0e8,stroke:#d9944a
+    style future fill:#f5f5f5,stroke:#999,stroke-dasharray: 5 5
+    style filesystem fill:#e8f4e8,stroke:#4a9e4a
+    style E1 fill:#4a90d9,stroke:#2c5f8a,color:#fff
+    style E2 fill:#4a90d9,stroke:#2c5f8a,color:#fff
+    style E3 fill:#4a90d9,stroke:#2c5f8a,color:#fff
+    style E4 fill:#4a90d9,stroke:#2c5f8a,color:#fff
+    style EN fill:#4a90d9,stroke:#2c5f8a,color:#fff
+    style Doc fill:#d9944a,stroke:#a66a2a,color:#fff
+    style Employees fill:#6ab86a,stroke:#4a9e4a,color:#fff
+    style Sources fill:#6ab86a,stroke:#4a9e4a,color:#fff
+    style Outputs fill:#6ab86a,stroke:#4a9e4a,color:#fff
+    style Recreation fill:#6ab86a,stroke:#4a9e4a,color:#fff
