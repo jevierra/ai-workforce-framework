@@ -165,6 +165,7 @@ ai-workforce-framework/
 ├── examples/
 │   ├── sales-employee/                # Sales specialist with relationship focus
 │   ├── service-employee/              # Hitchhiker's Guide-inspired service tracker
+│   ├── systems-admin/                 # Prometheus-inspired file systems maintainer
 │   ├── document-specialist/           # Multi-model (Gemini) document processor
 │   └── educator/                      # Warhammer 40K Mechanicus-themed AI tutor
 ├── recreation/
@@ -190,6 +191,7 @@ The `examples/` directory contains sanitized versions of production employees:
 |---------|----------------------|-------|-------------|
 | **Sales Employee** | Confident, warm, direct | Claude | Relationship-focused domain expertise, pipeline tracking |
 | **Service Employee** | Marvin (Hitchhiker's Guide) | Claude | Personality-driven output, service tracking |
+| **Systems Admin** | David (Prometheus) | Claude | File structure governance, archive management, employee onboarding |
 | **Document Specialist** | Lucien (Sandman) | Gemini | Multi-model deployment, large document processing |
 | **Educator** | Adeptus Mechanicus (Warhammer 40K) | Claude | Teaching frameworks, progress tracking |
 
